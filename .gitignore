@@ -1,5 +1,5 @@
 traderportal/node_modules
-.idea
+.idea/
 # Output
 .output
 .vercel
