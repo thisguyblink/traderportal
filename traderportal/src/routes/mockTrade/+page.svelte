@@ -2,6 +2,7 @@
     import {onMount} from "svelte";
     import SymbolInfo from "$lib/components/SymbolInfo.svelte";
     import Candlestick from "$lib/components/Candlestick.svelte";
+    import pairs  from "$lib/assets/kraken_pairs_USD.json";
 
     export let data;
     let userEmail = "default@email.com";
@@ -64,10 +65,18 @@
         }
     }
 
-    // reactive reload when krakenSymbol, interval, or length changes
+    // reactive reload when krakenSymbol changes
+    $: if (krakenSymbol) {
+        (async () => {
+            await getTickerData(krakenSymbol);
+        })();
+    }
+
+    // reload graph when symbol, interval, or length changes
     $: if (krakenSymbol && interval && length) {
-        getTickerData(krakenSymbol);
-        getTickerGraphData(krakenSymbol, interval, length);
+        (async () => {
+            await getTickerGraphData(krakenSymbol, interval, length);
+        })();
     }
 
 
