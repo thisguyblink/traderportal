@@ -20,7 +20,7 @@ export const dictionary = {
 		"/history": [4],
 		"/login": [~5],
 		"/mockLogin": [~6],
-		"/mockTrade": [7],
+		"/mockTrade": [~7],
 		"/trade": [8]
 	};
 

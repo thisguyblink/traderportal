@@ -9,7 +9,7 @@
 	export let children;    // page content
 
 	let session = data.session;
-	let user = data.user;
+	let user = supabase.auth.getUser();
 	onMount(() => {
 		const { data } = supabase.auth.onAuthStateChange((_, newSession) => {
 			if (newSession?.expires_at !== session?.expires_at) {
