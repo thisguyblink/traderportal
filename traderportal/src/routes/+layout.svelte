@@ -1,34 +1,29 @@
 <script>
 	import miniLogo from '$lib/assets/Titan Blockchain Logo Mini.jpg';
 	import Navbar from '$lib/components/navbar.svelte';
-	import { createBrowserClient, createServerClient, isBrowser } from '@supabase/ssr';
-	import { PUBLIC_SUPABASE_PUBLISHABLE_KEY, PUBLIC_SUPABASE_URL } from '$env/static/public';
-	import { invalidate } from '$app/navigation';
 	import { onMount } from 'svelte';
+	import { invalidate } from '$app/navigation';
+	import { supabase } from '$lib/supabase.js'; // import the client
 
-	export let data;   // props from load function
-	export let children; // slot content
+	export let data;        // layout server data
+	export let children;    // page content
 
 	let session = data.session;
-	let supabase = data.supabase;
 	let user = data.user;
-
 	onMount(() => {
-		const { data: authListener } = supabase.auth.onAuthStateChange((_, newSession) => {
+		const { data } = supabase.auth.onAuthStateChange((_, newSession) => {
 			if (newSession?.expires_at !== session?.expires_at) {
-				invalidate('supabase:auth');
+				invalidate('supabase:auth')
 			}
-		});
-		return () => authListener.subscription.unsubscribe();
-	});
+		})
+		return () => data.subscription.unsubscribe()
+	})
 </script>
 
 <svelte:head>
 	<link rel="icon" href={miniLogo} />
 </svelte:head>
-<Navbar />
 
-{@render children?.()}
+<Navbar {data} />
 
-
-}
+{@render children?.({session: session, user: user })}

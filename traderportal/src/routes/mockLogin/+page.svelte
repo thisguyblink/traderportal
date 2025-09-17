@@ -2,10 +2,18 @@
 </script>
 <body>
 <div class="login-stack">
-    <h1 class="title">Simulation Login </h1>
-    <input class="inputBox" type="text" placeholder="Username" name="username">
-    <input class="inputBox" type="password" placeholder="Password" name="password">
-    <button>Login</button>
+    <form action="?/mockLogin" method="POST" class="login-stack">
+        <h1 class="title">Mock Login </h1>
+        <label>Email
+            <br>
+            <input class="inputBox" type="text" placeholder="Email" name="email">
+        </label>
+        <label>Password
+            <br>
+        <input class="inputBox" type="password" placeholder="Password" name="password">
+            </label>
+        <button type="submit" >Login</button>
+    </form>
 </div>
 
 </body>

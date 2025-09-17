@@ -24,6 +24,6 @@ export const actions = {
         }
 
         // success → go to dashboard
-        throw redirect(303, '/')
+        throw redirect(303, '/mocktrade')
     }
 }

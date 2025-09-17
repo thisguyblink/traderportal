@@ -26,6 +26,11 @@
  * ```
  */
 declare module '$env/static/private' {
+	export const COINBASE_MOCK_PASSPHRASE: string;
+	export const COINBASE_MOCK_SECRET: string;
+	export const COINBASE_MOCK_API_URL: string;
+	export const COINBASE_API_KEY: string;
+	export const COINBASE_SECRET: string;
 	export const NVM_INC: string;
 	export const NODE: string;
 	export const INIT_CWD: string;
@@ -112,6 +117,11 @@ declare module '$env/static/public' {
  */
 declare module '$env/dynamic/private' {
 	export const env: {
+		COINBASE_MOCK_PASSPHRASE: string;
+		COINBASE_MOCK_SECRET: string;
+		COINBASE_MOCK_API_URL: string;
+		COINBASE_API_KEY: string;
+		COINBASE_SECRET: string;
 		NVM_INC: string;
 		NODE: string;
 		INIT_CWD: string;

@@ -1,5 +1,3 @@
-<script>
-</script>
 
 <div class="home">
     <h1>Welcome to the Titan Blockchain Trader Portal</h1>
@@ -7,7 +5,7 @@
         <button>Login</button>
     </a>
     <a href="mockLogin">
-        <button>Simulation Login</button>
+        <button>Mock Login</button>
     </a>
 </div>
 
