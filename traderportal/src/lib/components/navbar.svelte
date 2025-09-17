@@ -3,7 +3,7 @@
     import { supabase } from "$lib/supabase.js";
 
     export let data;
-    let userEmail = data?.session.user.email ?? "defaul@email.com";
+    let userEmail = data?.session?.user?.email ?? "defaul@email.com";
 
     async function signOut() {
         await supabase.auth.signOut();
